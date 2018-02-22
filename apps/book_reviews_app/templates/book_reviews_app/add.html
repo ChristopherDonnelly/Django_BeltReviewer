@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head> 
+	    <meta charset="UTF-8"> 
+	    <title>Add Book and Review</title>
+	     {% load static %}  
+	        <link rel="stylesheet" href="{% static 'book_reviews_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+	</head> 
+	<body> 
+	     <div id="wrapper">
+			<div id="header">
+				<h1>&nbsp;</h1>
+				<div id="nav">
+					<a href="/books/">Home</a> |
+					<span><em>Add Book and Review</em></span> |
+					<a href="/logout">Logout</a>
+				</div>
+			</div>
+	         <div id="content_layer"> 
+				<form action="/books/add_book/" method="post">
+					{% csrf_token %} 
+					<div id="labels">
+						<label for="book_title"><span>Book Title:</span> 
+							<input type="text" name="book_title" id="book_title" placeholder="Enter Book Title" value="{{ request.session.book_title }}"></label>
+
+						<label class="author">Author:</label>
+						<label for="author"><span>Choose from the list:</span> 
+							<select name="author" id="author">
+								<option value="0" hidden selected>Choose Author</option>
+
+								{% for author in authors %}
+									<option value="{{ author.id }}">{{ author.name }}</option>
+								{% endfor %}
+							</select></label>
+
+						<label for="add_author"><span>Or add a new author:</span> 
+							<input type="text" name="add_author" id="add_author" placeholder="Enter New Author" value="{{ request.session.add_author }}"></label>
+
+						<label for="review"><span>Review:</span>
+							<textarea name="review" id="review" rows="4" cols="50" placeholder="Enter Review" value="{{ request.session.review }}"></textarea></label>
+
+						<label for="rating"><span>Rating:</span> 
+							<select name="rating" id="rating">
+								<option value="1">         * </option>
+								<option value="2">       * * </option>
+								<option value="3">     * * * </option>
+								<option value="4">   * * * * </option>
+								<option value="5"> * * * * * </option>
+							</select></label>
+
+					</div>
+					<div id="errorLayer">
+						{% if messages %}
+							{% for message in messages %}
+								{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+									<p{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+										{{ message }}
+									</p>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+					</div>
+					<span id="nav">
+						<input type='submit' id="book_review" value='Add Book and Review'>
+					</span>
+				</form>
+	        </div>
+	     </div> 
+	</body> 
+</html> 

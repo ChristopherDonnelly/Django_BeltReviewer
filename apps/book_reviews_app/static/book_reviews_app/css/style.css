@@ -1,0 +1,333 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#wrapper {
+    position: relative;
+    margin: 50px auto;
+    width: 970px;
+}
+
+#wrapper h2~p {
+    margin: 10px 20px;
+}
+
+#header h1, #header #nav {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#header #nav {
+    float: right;
+    line-height: 2em;
+}
+
+#content_layer {
+    width: 850px;
+    height: 500px;
+    border: 2px inset darkgray;
+    margin: 25px auto;
+    padding: 25px;
+    box-shadow: 3px 3px 5px lightgrey;
+}
+
+#show_layer {
+    height: 450px;
+    overflow-y: auto;
+}
+
+a {
+    padding: 5px;
+}
+
+#content_layer p, #content_layer #nav a {
+    text-align: left;
+    padding: 10px;
+}
+
+#content_layer p {
+    font-size: 1.4em;
+}
+
+#content_layer #nav {
+    margin: 50px 0px 0px;
+}
+
+#content_layer input[type="submit"] + #nav {
+    margin: 20px 0px 0px;
+}
+
+#content_layer label {
+    display: block;
+    text-align: right;
+    padding: 10px;
+    font-size: 1.3em;
+}
+
+#content_layer input[type="text"], #content_layer input[type="email"], #content_layer input[type="password"], #content_layer select, textarea {
+    width: 300px;
+    font-size: 0.8em;
+    padding: 3px;
+}
+
+#content_layer select {
+    width: 310px;
+}
+
+#content_layer select#rating {
+    width: 90px;
+}
+
+#wrapper>p {
+    width: 250px;
+}
+
+#labels label span {
+    vertical-align: top;
+}
+
+#labels {
+    vertical-align: top;
+    display: inline-block;
+    width: 70%;
+}
+
+#errorLayer {
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    width: 25%;
+    padding-top: 1px;
+}
+
+#content_layer p.error {
+    color: red;
+    font-size: 0.9em;
+    position: absolute;
+    left: -10px;
+}
+p.error::before {
+    content: '*';
+    position: absolute;
+    margin-left: -445px;
+    margin-top: -5px;
+}
+p.email.error:before, p.login_email.error:before {
+    margin-left: -395px;
+}
+p.password.error:before, p.login_password.error:before {
+    margin-left: -435px;
+}
+p.confirm_pw.error:before {
+    margin-left: -513px;
+}
+p.first_name.error, p.login_email.error {
+    top: 7px;
+}
+p.last_name.error, p.login_password.error {
+    top: 57px;
+}
+p.email.error {
+    top: 107px;
+}
+p.password.error {
+    top: 157px;
+}
+p.confirm_pw.error {
+    top: 207px;
+}
+
+table {
+    width: 100%;
+}
+
+table, table th {
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 5px;
+}
+
+th {
+    background-color: darkslategray;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+table td {
+    text-align: left;
+}
+td:nth-child(n+4) {
+    text-align: center;
+}
+
+input[type="submit"] {
+    width: 115px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid darkgray;
+    background-color: white;
+    box-shadow: 3px 3px 10px lightgrey;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px grey;
+    cursor: pointer;
+    color: black;
+    margin: 50px 0px 0px;
+}
+
+input[type="submit"]:hover {
+    border: 1px solid darkgray;
+    background-color: lightskyblue;
+    color: white;
+    box-shadow: 3px 3px 10px lightgrey;
+    text-shadow: 1px 1px 2px grey;
+}
+
+#book_review {
+    width: 170px;
+}
+
+.red {
+    color: red;
+}
+
+#content_layer #nav {
+    margin: 0px 0px 25px;
+    display: block;
+    text-align: center;
+}
+
+#recent_review_layer, #other_reviews_layer {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+}
+
+.book_review_card {
+    margin: 0px 35px;
+}
+
+.book_review_card>a {
+    display: block;
+    text-align: left;
+    font-size: 1.3em;
+    padding: 25px 0px 0px;
+}
+
+#content_layer .book_review_card p {
+    font-size: 1em;
+    padding: 5px 20px;
+}
+
+#content_layer .book_review_card p a {
+    padding: 0px;
+}
+
+#reviews_scroll .book_review_card p:last-of-type, #reviews_scroll .book_review_card p~a:last-of-type, #recent_reviews_display .book_review_card p:last-of-type, #recent_reviews_display .book_review_card p~a:last-of-type {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#reviews_scroll .book_review_card p~a:last-of-type, #recent_reviews_display .book_review_card p~a:last-of-type {
+    font-size: 0.7em;
+    padding: 0px;
+}
+
+#all_other_reviews {
+    margin: 30px 0px 0px 30px;
+    height: 300px;
+    overflow-y: auto;
+    border: 2px inset darkgray;
+    box-shadow: 3px 3px 5px lightgrey;
+    padding: 10px;
+}
+
+#all_other_reviews a {
+    display: block;
+}
+
+.author {
+    margin-right: 316px;
+}
+
+#reviews, #reviews~form {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+}
+
+#reviews {
+    width: 40%;
+    overflow-y: auto;
+}
+
+#reviews #reviews_scroll {
+    height: 450px;
+    overflow-y: auto;
+}
+
+#reviews~form {
+    float: right;
+}
+
+#reviews img {
+    width: 17px;    
+}
+
+#reviews .book_review_card {
+    border-top: 1px solid black;
+    margin: 15px 0px;
+}
+#reviews~form #nav input[type="submit"] {
+    float: right;
+    margin: 20px 0px 0px;
+}
+#reviews~form #labels {
+    display: block;
+    width: 100%;
+}
+
+form #errorLayer {
+    display: block;
+    width: 75%;
+    height: 16px;
+}
+
+#content_layer form p.error {
+    position: relative;
+    left: 88px;
+    padding: 0px;
+}
+
+#content_layer form p.error::before {
+    content: '*';
+    position: absolute;
+    margin-left: -85px;
+    margin-top: -105px;
+}
+
+#user_reviews_layer {
+    margin: 0px 30px;
+    overflow-y: auto;
+    height: 250px;
+    width: 400px;
+    border: 2px inset darkgray;
+    box-shadow: 3px 3px 5px lightgrey;
+}
+
+#user_reviews_layer a {
+    display: block;
+    font-size: 1.2em;
+}

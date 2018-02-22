@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+	    <meta charset="UTF-8"> 
+		<title>Books Home</title>
+	     {% load static %}  
+	        <link rel="stylesheet" href="{% static 'book_reviews_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <h1>Welcome, {{ name }}!</h1>
+                <div id="nav">
+                    <span><em>Home</em></span> |
+                    <a href="/books/add/">Add Book and Review</a> |
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+            <div id="content_layer"> 
+                <div id="recent_review_layer">
+                    <h2>Recent Book Reviews:</h2>
+                    <div id="recent_reviews_display">
+                        {% for review in reviews %}
+                            <div class="book_review_card">
+                                <a href="{{ review.book.id }}/">{{ review.book.title }}</a>
+                                <p class="rating">Rating: {{ review.rating }} Stars</p>
+                                <p><a href="users/{{ review.user.id }}/">{{ review.user.first_name }}</a> Says: {{ review.content }}.</p>
+                                <p>{{ review.created_at }}</p>
+                                {% if review.user.id == request.session.user_session %}
+                                    <a href="/books/{{ review.book.id }}/{{ review.id }}/delete/">Delete Review</a>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id="other_reviews_layer">
+                    <h2>Other Books with Reviews:</h2>
+                    <div id="all_other_reviews">
+                        {% for book in books %}
+                            <a href="{{ book.id }}/">{{ book.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
