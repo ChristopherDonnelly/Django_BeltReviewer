@@ -25,7 +25,7 @@
 						{% for review in reviews %}
 							<div class="book_review_card">
 								<p>Rating:
-									{% with ''|center:5 as range %}
+									{% with 'xxxxx' as range %}
 										{% for _ in range %}
 											{% if forloop.counter <= review.rating %}
 												<img src="{% static 'book_reviews_app/images/star.png' %}" alt='{{ review.rating }} Stars' >

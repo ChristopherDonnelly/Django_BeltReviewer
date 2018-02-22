@@ -23,7 +23,17 @@
                         {% for review in reviews %}
                             <div class="book_review_card">
                                 <a href="{{ review.book.id }}/">{{ review.book.title }}</a>
-                                <p class="rating">Rating: {{ review.rating }} Stars</p>
+                                <p class="rating">Rating: 
+                                    {% with 'xxxxx' as range %}
+										{% for _ in range %}
+											{% if forloop.counter <= review.rating %}
+												<img src="{% static 'book_reviews_app/images/star.png' %}" alt='{{ review.rating }} Stars' >
+											{% else %}
+												<img src="{% static 'book_reviews_app/images/star-empty.png' %}" alt='{{ review.rating }} Stars' >
+											{% endif %}
+										{% endfor %}
+									{% endwith %}
+                                </p>
                                 <p><a href="users/{{ review.user.id }}/">{{ review.user.first_name }}</a> Says: {{ review.content }}.</p>
                                 <p>{{ review.created_at }}</p>
                                 {% if review.user.id == request.session.user_session %}

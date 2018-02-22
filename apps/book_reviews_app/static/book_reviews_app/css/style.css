@@ -282,8 +282,9 @@ input[type="submit"]:hover {
     float: right;
 }
 
-#reviews img {
-    width: 17px;    
+.book_review_card img {
+    width: 17px;
+    vertical-align: middle;
 }
 
 #reviews .book_review_card {
